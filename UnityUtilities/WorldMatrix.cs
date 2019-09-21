@@ -4,7 +4,7 @@ using System.Text;
 
 namespace UnityUtilities
 {
-    class WorldMatrix<T>
+    public class WorldMatrix<T>
     {
         private T[,] matrix;
         private int nRow;
