@@ -37,7 +37,8 @@ namespace UnityUtilities
                 if (firstRow)
                 {
                     firstRow = false;
-                } else
+                }
+                else
                 {
                     sb.Append(Environment.NewLine + " ");
                 }
@@ -49,7 +50,8 @@ namespace UnityUtilities
                     {
                         sb.Append("[");
                         firstCol = false;
-                    } else
+                    }
+                    else
                     {
                         sb.Append(", ");
                     }
@@ -64,14 +66,16 @@ namespace UnityUtilities
             if (nRow == 0)
             {
                 sb.Append("L=n/a, R=n/a, T=n/a, B=n/a");
-            } else { 
+            }
+            else
+            {
                 sb.Append(String.Format("L={0}, R={1}, T={2}, B={3}", left, right, top, bottom));
             }
 
             return sb.ToString();
         }
 
-         public delegate void Action(ref T obj);
+        public delegate void Action(ref T obj);
 
         public void ApplyOnLeftColumn(Action action)
         {
@@ -107,7 +111,7 @@ namespace UnityUtilities
 
         public IEnumerable<T> GetLeftColumn()
         {
-            for(int i=0; i<nRow; i++)
+            for (int i = 0; i < nRow; i++)
             {
                 yield return matrix[i, left];
             }
@@ -123,7 +127,7 @@ namespace UnityUtilities
 
         public IEnumerable<T> GetTopRow()
         {
-            for(int j = 0; j < nCol; j++)
+            for (int j = 0; j < nCol; j++)
             {
                 yield return matrix[top, j];
             }
@@ -177,7 +181,11 @@ namespace UnityUtilities
             bottom = (bottom - 1 + nRow) % nRow;
         }
 
+    }
 
+
+    class WorldMatrixTester
+    {
         public static void Main(string[] args)
         {
             Console.WriteLine(new WorldMatrix<int>(new int[,] { { 1, 2, 3 }, { 4, 5, 6 } }));
